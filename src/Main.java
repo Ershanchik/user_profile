@@ -4,17 +4,14 @@ public class Main{
         UserProfileObjectBuilder objectBuilder=new UserProfileObjectBuilder();
         director.makeVerifiedProfile(objectBuilder);
         UserProfile profile=objectBuilder.getResult();
-        System.out.println("result type: "+profile.getClass().getSimpleName());
-        System.out.println(profile);System.out.println();
+        System.out.println(profile);
         UserProfileCardBuilder cardBuilder=new UserProfileCardBuilder();
         director.makeVerifiedProfile(cardBuilder);
-        String card=cardBuilder.getResult();
-        System.out.println("result type: string");
-        System.out.println(card);System.out.println();
-        System.out.println("validation check(username too short): ");
-        try{new UserProfileObjectBuilder()
-                .setUsername("ab")
-                .setEmail("test@example.com")
-                .getResult();}
-        catch(IllegalStateException e){System.out.println("exception caught: "+e.getMessage());}}
+        System.out.println(cardBuilder.getResult());
+        try{
+            new UserProfileObjectBuilder().setEmail("test@example.com").getResult();
+        } catch (IllegalStateException e){
+            System.out.println("Validation works: "+e.getMessage());
+        }
+    }
 }
