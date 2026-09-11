@@ -11,10 +11,10 @@ public class Main{
         String card=cardBuilder.getResult();
         System.out.println("result type: string");
         System.out.println(card);System.out.println();
-        System.out.println("validation check(username too short):");
+        System.out.println("validation check(username too short): ");
         try{new UserProfileObjectBuilder()
                 .setUsername("ab")
                 .setEmail("test@example.com")
                 .getResult();}
-        catch(IllegalStateException e){System.out.println("Поймано исключение: "+e.getMessage());}}
+        catch(IllegalStateException e){System.out.println("exception caught: "+e.getMessage());}}
 }
